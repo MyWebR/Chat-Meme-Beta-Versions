@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grup chat beta versions</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Tombol untuk menampilkan popup -->
+    <button id="showPopupButton">Komentar</button>
+
+    <!-- Popup untuk komentar -->
+    <div id="commentPopup" class="popup">
+      <div class="kartu-komen"></div>
+      <button id="closePopup" class="close-button">X</button>
+      <div class="container">
+        <!-- Bagian login -->
+        <div id="loginSection" class="login-section">
+          <h2>Selamat datang di Chat Meme</h2>
+          <p>Login menggunakan akun Google untuk memulai percakapan</p>
+          <div class="login-button-container">
+            <img
+              src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png"
+              alt="Google Logo"
+              class="google-logo"
+            />
+            <button id="signInButton" onclick="googleSignIn()">
+              Masuk dengan Google
+            </button>
+          </div>
+        </div>
+
+        <!-- Bagian komentar -->
+        <div id="commentContainer" class="comment-container hidden">
+          <!-- Info Pengguna -->
+          <div id="userInfo" class="user-info hidden">
+            <img
+              id="userProfilePic"
+              class="profile-pic"
+              src=""
+              alt="Foto Profil"
+            />
+            <div class="user-details">
+              <div id="userName" class="username"></div>
+              <div id="userEmail" class="email"></div>
+              <button id="logoutButton" onclick="googleSignOut()">
+                Logout
+              </button>
+            </div>
+          </div>
+
+          <h1>Forum Komentar</h1>
+          <div id="commentSection" class="comment-section"></div>
+
+          <!-- Inputan Komentar -->
+          <div class="comment-form">
+            <div class="comment-input">
+              <textarea
+                id="commentInput"
+                placeholder="Tulis komentar..."
+              ></textarea>
+              <button id="submitButton">Kirim</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK dan Logika Aplikasi -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

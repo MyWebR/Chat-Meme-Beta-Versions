@@ -1,0 +1,413 @@
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 10px 20px 0 10px;
+  width: 97.5%;
+  height: 100%;
+  position: fixed; /* Posisi tetap pada viewport */
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+/* Kartu Komen */
+.kartu-komen {
+  display: none;
+  height: 7px;
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.29);
+  border-radius: 50px;
+  margin: 10px auto; /* Memusatkan elemen secara horizontal */
+}
+
+/* Popup Content */
+.popup-content {
+  width: 100%;
+  max-width: 600px;
+  height: 80%;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Menyembunyikan scroll pada konten */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
+}
+
+/* Gaya Umum untuk Bagian Login */
+.login-section {
+  height: 100%;
+  width: auto;
+  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f9;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.login-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.google-logo {
+  width: 150px; /* Sesuaikan ukuran logo */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#signInButton {
+  background-color: #4285F4; /* Warna biru Google */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#signInButton:hover {
+  background-color: #357ae8; /* Warna biru gelap saat hover */
+}
+
+#signInButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.5); /* Efek fokus */
+}
+
+
+/* Atur posisi konten untuk desktop dan mobile */
+@media (min-width: 768px) {
+  .popup-content {
+    width: 50%;
+    height: auto;
+    max-width: 800px;
+    margin: auto; /* Hapus margin pada desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  .popup-content {
+    width: 90%;
+    height: auto;
+    margin: auto; /* Hapus margin pada mobile */
+  }
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 0 10px;
+}
+
+/* Profil Pic Styling */
+#userProfilePic {
+  height: 70px;
+  width: auto;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.email {
+  color: gray;
+}
+
+/* Bagian Komentar */
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.comment-section {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comment {
+  margin-top: 20px;
+  padding: 25px;
+  background-color: #00000011;
+  border-left: 5px solid #00000047;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Pastikan padding dimasukkan dalam ukuran total */
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.text {
+  word-wrap: break-word;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-button {
+  color: blue;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.replies {
+  margin-left: 20px;
+  display: none;
+}
+
+.replies.visible {
+  display: block;
+}
+
+.toggle-replies {
+  color: blue;
+  cursor: pointer;
+  border: none; /* Menghapus border */
+  background: none; /* Menghilangkan latar belakang */
+  font-size: 14px; /* Ukuran font tombol */
+  text-align: left; /* Teks di sebelah kiri */
+  display: block; /* Mengatur tombol menjadi blok agar teks tidak tersebar */
+}
+
+.toggle-replies:hover {
+  text-decoration: underline; /* Menambahkan garis bawah saat hover */
+}
+
+.comment-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.comment-input textarea {
+  flex: 1;
+  height: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.comment-input button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 13px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-input button:hover {
+  background-color: #0056b3;
+}
+
+/* Tombol Logout */
+#logoutButton {
+  background-color: transparent;
+  color: gray;
+  font-weight: bold;
+  border: none;
+  width: max-content;
+  padding: 0;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.verification-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.verification-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+
+/* CSS untuk Popup dengan Animasi Slide */
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  z-index: 1000; /* Pastikan popup berada di atas konten lainnya */
+}
+
+.popup.visible {
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .popup {
+    width: 100%;
+    height: 75%;
+    bottom: 0;
+    top: auto;
+    right: auto;
+    border-radius: 30px;
+    transform: translateY(100%);
+  }
+
+  .popup.visible {
+    transform: translateY(0);
+  }
+
+  .comment-input {
+    border-radius: 0;
+  }
+
+  /* Kartu Komen */
+  .kartu-komen {
+    display: block;
+    height: 7px;
+    width: 80px;
+    background-color: rgba(0, 0, 0, 0.29);
+    border-radius: 50px;
+    margin: 10px auto; /* Memusatkan elemen secara horizontal */
+  }
+
+  .user-info {
+    margin: 20px 0 0 10px;
+  }
+
+  .container {
+    width: 95.5%;
+  }
+
+  .login-section {
+    height: 88%;
+    width: auto;
+    border-radius: 35px 35px 0 0;
+    margin-left: 0;
+  background-color: #55555516;
+  }
+}
+
+/* Untuk tombol comment */
+#showPopupButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#showPopupButton:hover {
+  background-color: #0056b3;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+  z-index: 2000; /* Pastikan tombol berada di atas elemen lainnya */
+}
+
+.comment-section {
+  overflow-y: scroll; /* Memastikan elemen dapat di-scroll secara vertikal */
+  scrollbar-width: none; /* Firefox: sembunyikan scrollbar */
+  -ms-overflow-style: none; /* Internet Explorer 10+: sembunyikan scrollbar */
+}
+
+.comment-section::-webkit-scrollbar {
+  width: 0px; /* Chrome, Safari, Opera: sembunyikan scrollbar */
+  background: transparent;
+}
